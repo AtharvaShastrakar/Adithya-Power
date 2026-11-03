@@ -65,16 +65,75 @@
       animation: emberPulse 7s ease-in-out infinite;
     }
 
-    /* Purposeful Motion: Scroll Reveal */
+    /* Purposeful Motion: Scroll Reveal Directions & Scale */
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
     .reveal-on-scroll.is-revealed {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Slide In From Left */
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-left.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Slide In From Right */
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-right.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Scale & Pop Upward */
+    .reveal-scale {
+      opacity: 0;
+      transform: translateY(35px) scale(0.95);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-scale.is-revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Expanding Molten Underline Accent */
+    .expand-line {
+      position: relative;
+      display: inline-block;
+    }
+    .expand-line::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #ef781b, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+    }
+    .is-revealed .expand-line::after,
+    .reveal-left.is-revealed .expand-line::after,
+    .reveal-right.is-revealed .expand-line::after {
+      transform: scaleX(1);
     }
 
     /* Card Hover: Orange line wipe along bottom edge */
@@ -123,9 +182,10 @@
       .ken-burns, .ember-glow {
         animation: none !important;
       }
-      .reveal-on-scroll {
+      .reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale {
         opacity: 1 !important;
         transform: none !important;
+        transition: none !important;
       }
     }
   </style>
@@ -317,7 +377,7 @@
       <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
         <!-- Left: High-End Multi-Photo Collage (6 cols) -->
-        <div class="lg:col-span-6 relative w-full pb-10 sm:pb-12 reveal-on-scroll">
+        <div class="lg:col-span-6 relative w-full pb-10 sm:pb-12 reveal-left">
           
           <!-- Primary Image: Leadership & Engineering Conference Team -->
           <div class="w-[84%] aspect-[4/3] relative overflow-hidden border border-[#2f3942] shadow-xl bg-[#222a31]">
@@ -352,7 +412,7 @@
         </div>
 
         <!-- Right: Story & 2 Value Proposition Cards (6 cols) -->
-        <div class="lg:col-span-6 flex flex-col gap-7 reveal-on-scroll">
+        <div class="lg:col-span-6 flex flex-col gap-7 reveal-right">
           
           <div class="flex flex-col gap-4">
             <h3 class="text-white text-[22px] sm:text-[24px] font-semibold leading-snug">
@@ -452,7 +512,7 @@
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
         
         <!-- Service Card 01: Refractory Material Manufacturing -->
-        <a href="refractory-material-manufacturing.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-on-scroll">
+        <a style="transition-delay: 0ms;" href="refractory-material-manufacturing.html"  class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-scale">
           <div>
             <div class="flex justify-between items-start">
               <div class="w-14 h-14 bg-[#1a2126] text-[#ef781b] border border-[#2f3942] flex items-center justify-center transition-colors group-hover:border-[#ef781b]">
@@ -497,7 +557,7 @@
         </a>
 
         <!-- Service Card 02: Design Engineering -->
-        <a href="design-engineering.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-on-scroll">
+        <a style="transition-delay: 120ms;" href="design-engineering.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-scale">
           <div>
             <div class="flex justify-between items-start">
               <div class="w-14 h-14 bg-[#1a2126] text-[#ef781b] border border-[#2f3942] flex items-center justify-center transition-colors group-hover:border-[#ef781b]">
@@ -542,7 +602,7 @@
         </a>
 
         <!-- Service Card 03: Material Selection and Supply -->
-        <a href="material-selection-optimization-supply.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-on-scroll">
+        <a style="transition-delay: 240ms;" href="material-selection-optimization-supply.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-scale">
           <div>
             <div class="flex justify-between items-start">
               <div class="w-14 h-14 bg-[#1a2126] text-[#ef781b] border border-[#2f3942] flex items-center justify-center transition-colors group-hover:border-[#ef781b]">
@@ -588,7 +648,7 @@
         </a>
 
         <!-- Service Card 04: Installation and Dry Out -->
-        <a href="installation-and-dry-out.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-on-scroll">
+        <a style="transition-delay: 360ms;" href="installation-and-dry-out.html" class="hover-wipe-line group bg-[#222a31] text-white border border-[#2f3942] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-lg hover:shadow-2xl hover:border-[#ef781b]/60 hover:-translate-y-2 transition-all duration-300 ease-out relative overflow-hidden block reveal-scale">
           <div>
             <div class="flex justify-between items-start">
               <div class="w-14 h-14 bg-[#1a2126] text-[#ef781b] border border-[#2f3942] flex items-center justify-center transition-colors group-hover:border-[#ef781b]">
@@ -662,7 +722,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-7">
         
         <!-- Capability Card 1 -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-on-scroll">
+        <div style="transition-delay: 0ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-scale">
           <div class="h-[240px] w-full relative overflow-hidden bg-[#12171a] mb-5">
             <img 
               src="./assets/capability-1.png" 
@@ -682,7 +742,7 @@
         </div>
 
         <!-- Capability Card 2 -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-on-scroll">
+        <div style="transition-delay: 140ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-scale">
           <div class="h-[240px] w-full relative overflow-hidden bg-[#12171a] mb-5">
             <img 
               src="./assets/capability-2.png" 
@@ -702,7 +762,7 @@
         </div>
 
         <!-- Capability Card 3 -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-on-scroll">
+        <div style="transition-delay: 280ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] p-6 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 transition-all duration-300 reveal-scale">
           <div class="h-[240px] w-full relative overflow-hidden bg-[#12171a] mb-5">
             <img 
               src="./assets/capability-3.png" 
@@ -807,7 +867,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         
         <!-- Sector A: Cement Industry -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-on-scroll">
+        <div style="transition-delay: 0ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-scale">
           <div>
             <div class="w-full aspect-[4/3] overflow-hidden relative bg-[#12171a]">
               <img 
@@ -855,7 +915,7 @@
         </div>
 
         <!-- Sector B: Steel Plant -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-on-scroll">
+        <div style="transition-delay: 100ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-scale">
           <div>
             <div class="w-full aspect-[4/3] overflow-hidden relative bg-[#12171a]">
               <img 
@@ -903,7 +963,7 @@
         </div>
 
         <!-- Sector C: Aluminium Industry -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-on-scroll">
+        <div style="transition-delay: 200ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-scale">
           <div>
             <div class="w-full aspect-[4/3] overflow-hidden relative bg-[#12171a]">
               <img 
@@ -951,7 +1011,7 @@
         </div>
 
         <!-- Sector D: Chemical Industry -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-on-scroll">
+        <div style="transition-delay: 300ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-scale">
           <div>
             <div class="w-full aspect-[4/3] overflow-hidden relative bg-[#12171a]">
               <img 
@@ -999,7 +1059,7 @@
         </div>
 
         <!-- Sector E: Petrochemicals -->
-        <div class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-on-scroll">
+        <div style="transition-delay: 400ms;" class="hover-wipe-line group flex flex-col bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden shadow-lg justify-between reveal-scale">
           <div>
             <div class="w-full aspect-[4/3] overflow-hidden relative bg-[#12171a]">
               <img 
@@ -1082,7 +1142,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
         
         <!-- Pillar 1: Plant Refractory Audit -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-on-scroll">
+        <div style="transition-delay: 0ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-scale">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 bg-[#1a2126] border border-[#2f3942] flex items-center justify-center text-[#ef781b] group-hover:border-[#ef781b] transition-colors">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1102,7 +1162,7 @@
         </div>
 
         <!-- Pillar 2: 24/7 Turnkey Relining -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-on-scroll">
+        <div style="transition-delay: 120ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-scale">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 bg-[#1a2126] border border-[#2f3942] flex items-center justify-center text-[#ef781b] group-hover:border-[#ef781b] transition-colors">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1122,7 +1182,7 @@
         </div>
 
         <!-- Pillar 3: Zero-Spalling Dry Out -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-on-scroll">
+        <div style="transition-delay: 240ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-scale">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 bg-[#1a2126] border border-[#2f3942] flex items-center justify-center text-[#ef781b] group-hover:border-[#ef781b] transition-colors">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1143,7 +1203,7 @@
         </div>
 
         <!-- Pillar 4: Hot Patching & Repair -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-on-scroll">
+        <div style="transition-delay: 360ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b]/60 p-7 flex flex-col justify-between min-h-[300px] transition-all duration-300 group shadow-md reveal-scale">
           <div class="flex flex-col gap-4">
             <div class="w-12 h-12 bg-[#1a2126] border border-[#2f3942] flex items-center justify-center text-[#ef781b] group-hover:border-[#ef781b] transition-colors">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1197,7 +1257,7 @@
     <section class="w-full bg-[#f4f1ec] text-[#12171a] px-6 sm:px-10 lg:px-[72px] py-20 lg:py-24 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center border-b border-[#ded9d0]" id="approach">
       
       <!-- Left: Process Image with dark badge -->
-      <div class="w-full lg:w-[480px] xl:w-[520px] aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-[500px] relative shrink-0 overflow-hidden flex flex-col justify-end p-6 border border-[#ded9d0] shadow-xl reveal-on-scroll">
+      <div class="w-full lg:w-[480px] xl:w-[520px] aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-[500px] relative shrink-0 overflow-hidden flex flex-col justify-end p-6 border border-[#ded9d0] shadow-xl reveal-left">
         <img 
           src="./assets/furnace-lining.png" 
           alt="Refractory furnace lining application photograph" 
@@ -1211,7 +1271,7 @@
       </div>
 
       <!-- Right: Quality Approach (Clean High-Contrast Dark Typography) -->
-      <div class="flex-1 flex flex-col gap-6 w-full reveal-on-scroll">
+      <div class="flex-1 flex flex-col gap-6 w-full reveal-right">
         <div class="flex items-center gap-2.5">
           <div class="w-[7px] h-[7px] bg-[#ef781b] shrink-0"></div>
           <p class="font-mono-tag font-semibold text-[#ef781b] text-[12px] tracking-[1.4px] uppercase">
@@ -1291,7 +1351,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Leader 1: D.K. SINGH -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 0ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/dk-singh.png" 
@@ -1310,7 +1370,7 @@
         </div>
 
         <!-- Leader 2: SARANG DESHMUKH -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 90ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/sarang-deshmukh.png" 
@@ -1329,7 +1389,7 @@
         </div>
 
         <!-- Leader 3: VINEET SINGH -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 180ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/vineet-singh.png" 
@@ -1348,7 +1408,7 @@
         </div>
 
         <!-- Leader 4: N P SINGH -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 270ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/np-singh.png" 
@@ -1367,7 +1427,7 @@
         </div>
 
         <!-- Leader 5: GAURANG SHAH -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 360ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/gaurang-shah.png" 
@@ -1386,7 +1446,7 @@
         </div>
 
         <!-- Leader 6: PRASHANT G -->
-        <div class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-on-scroll">
+        <div style="transition-delay: 450ms;" class="hover-wipe-line bg-[#222a31] border border-[#2f3942] p-5 group transition-all duration-300 shadow-md hover:shadow-2xl hover:border-[#ef781b]/60 reveal-scale">
           <div class="w-full aspect-square bg-[#12171a] overflow-hidden relative border border-[#2f3942] mb-4">
             <img 
               src="./assets/leaders/prashant-g.png" 
@@ -1448,7 +1508,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         
         <!-- Left Column: The Interactive Contact Form (Tabs + Inputs in #222a31) -->
-        <div class="lg:col-span-7 bg-[#222a31] border border-[#2f3942] shadow-2xl p-6 sm:p-10 reveal-on-scroll">
+        <div class="lg:col-span-7 bg-[#222a31] border border-[#2f3942] shadow-2xl p-6 sm:p-10 reveal-left">
           
           <!-- Tabs: General Enquiries / Product Enquiries -->
           <div class="flex border-b border-[#2f3942] mb-8">
@@ -1560,7 +1620,7 @@
         </div>
 
         <!-- Right Column: Get In Touch Card (#222a31 card, border #2f3942) -->
-        <div class="lg:col-span-5 bg-[#222a31] border border-[#2f3942] text-white p-8 sm:p-12 shadow-2xl flex flex-col justify-between min-h-[500px] reveal-on-scroll">
+        <div class="lg:col-span-5 bg-[#222a31] border border-[#2f3942] text-white p-8 sm:p-12 shadow-2xl flex flex-col justify-between min-h-[500px] reveal-right">
           <div>
             <!-- Headline -->
             <h3 class="font-heading text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-8">
@@ -1674,9 +1734,55 @@
       }
     }, { passive: true });
 
-    // 3. Scroll Reveal via IntersectionObserver with Stagger
+    // 0. Luxurious Smooth Scroll Momentum Dampener (Slows down wheel scroll & adds silky momentum)
+    (function initSmoothScroll() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      
+      let targetY = window.scrollY;
+      let currentY = window.scrollY;
+      let isRunning = false;
+      const ease = 0.085; // Silky smooth glide ease
+
+      window.addEventListener('wheel', (e) => {
+        // Intercept standard mouse wheel scrolls and trackpad large flings
+        if (Math.abs(e.deltaY) > 1.5) {
+          e.preventDefault();
+          // Multiply by 0.65 to reduce scroll jump speed by ~35% for a controlled cinematic feel
+          const slowedDelta = e.deltaY * 0.65;
+          const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+          targetY = Math.max(0, Math.min(maxScroll, targetY + slowedDelta));
+          
+          if (!isRunning) {
+            isRunning = true;
+            requestAnimationFrame(renderScroll);
+          }
+        }
+      }, { passive: false });
+
+      function renderScroll() {
+        currentY += (targetY - currentY) * ease;
+        window.scrollTo(0, currentY);
+
+        if (Math.abs(targetY - currentY) > 0.6) {
+          requestAnimationFrame(renderScroll);
+        } else {
+          window.scrollTo(0, targetY);
+          currentY = targetY;
+          isRunning = false;
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!isRunning) {
+          targetY = window.scrollY;
+          currentY = window.scrollY;
+        }
+      }, { passive: true });
+    })();
+
+    // 3. Multi-Directional Scroll Reveal via IntersectionObserver
     document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale');
       
       if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -1688,16 +1794,11 @@
           });
         }, {
           root: null,
-          rootMargin: '0px 0px -60px 0px',
-          threshold: 0.1
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.12
         });
 
-        revealElements.forEach((el, index) => {
-          // Stagger cards or siblings
-          const stagger = (index % 4) * 80;
-          el.style.transitionDelay = `${stagger}ms`;
-          revealObserver.observe(el);
-        });
+        revealElements.forEach(el => revealObserver.observe(el));
       } else {
         revealElements.forEach(el => el.classList.add('is-revealed'));
       }
