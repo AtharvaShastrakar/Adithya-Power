@@ -1500,34 +1500,23 @@
           Your questions <span class="text-[#ef781b]">matter to us.</span>
         </h2>
         <p class="text-[#b8c0c8] text-[16px] sm:text-[18px] max-w-[720px] leading-relaxed">
-          Choose the relevant enquiry form below, and our engineering team will respond within 24 hours.
+          Submit your requirements below, and our engineering team will respond within 24 hours.
         </p>
       </div>
 
       <!-- Two-Column Contact Layout -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         
-        <!-- Left Column: The Interactive Contact Form (Tabs + Inputs in #222a31) -->
+        <!-- Left Column: The Interactive Contact Form (#222a31) -->
         <div class="lg:col-span-7 bg-[#222a31] border border-[#2f3942] shadow-2xl p-6 sm:p-10 reveal-left">
           
-          <!-- Tabs: General Enquiries / Product Enquiries -->
+          <!-- Unified Enquiry Heading -->
           <div class="flex border-b border-[#2f3942] mb-8">
-            <button 
-              type="button" 
-              id="tabGeneral" 
-              onclick="switchTab('general')"
-              class="pb-3 px-2 mr-8 font-mono-tag font-bold text-[13px] text-white border-b-2 border-[#ef781b] tracking-wider uppercase transition-colors"
+            <div 
+              class="pb-3 px-2 font-mono-tag font-bold text-[13px] text-white border-b-2 border-[#ef781b] tracking-wider uppercase inline-block"
             >
-              GENERAL ENQUIRIES
-            </button>
-            <button 
-              type="button" 
-              id="tabProduct" 
-              onclick="switchTab('product')"
-              class="pb-3 px-2 font-mono-tag font-bold text-[13px] text-[#78828c] hover:text-white border-b-2 border-transparent tracking-wider uppercase transition-colors"
-            >
-              PRODUCT ENQUIRIES
-            </button>
+              GENERAL &amp; PRODUCT ENQUIRIES
+            </div>
           </div>
 
           <form id="contactForm" onsubmit="event.preventDefault(); handleContactSubmit();" class="space-y-6">
@@ -1857,20 +1846,7 @@
       }, { passive: true });
     });
 
-    // 6. Contact Form Tab Switcher
-    function switchTab(type) {
-      const tabGen = document.getElementById('tabGeneral');
-      const tabProd = document.getElementById('tabProduct');
-      if (type === 'general') {
-        tabGen.className = 'pb-3 px-2 mr-8 font-mono-tag font-bold text-[13px] text-white border-b-2 border-[#ef781b] tracking-wider uppercase transition-colors';
-        tabProd.className = 'pb-3 px-2 font-mono-tag font-bold text-[13px] text-[#78828c] hover:text-white border-b-2 border-transparent tracking-wider uppercase transition-colors';
-      } else {
-        tabProd.className = 'pb-3 px-2 font-mono-tag font-bold text-[13px] text-white border-b-2 border-[#ef781b] tracking-wider uppercase transition-colors';
-        tabGen.className = 'pb-3 px-2 mr-8 font-mono-tag font-bold text-[13px] text-[#78828c] hover:text-white border-b-2 border-transparent tracking-wider uppercase transition-colors';
-      }
-    }
-
-    // 7. Contact Form Submission Feedback
+    // 6. Contact Form Submission Feedback
     function handleContactSubmit() {
       const btn = document.getElementById('contactSubmitBtn');
       const orig = btn.innerHTML;

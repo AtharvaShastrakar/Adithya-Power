@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 export const AdithyaPowerHomepage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'general' | 'product'>('general');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -980,27 +979,16 @@ export const AdithyaPowerHomepage: React.FC = () => {
             Your questions <span className="text-[#ef781b]">matter to us.</span>
           </h2>
           <p className="text-[#b8c0c8] text-[16px] sm:text-[18px] max-w-[720px] leading-relaxed">
-            Choose the relevant enquiry form below, and our engineering team will respond within 24 hours.
+            Submit your requirements below, and our engineering team will respond within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <div className="lg:col-span-7 bg-[#222a31] border border-[#2f3942] shadow-2xl p-6 sm:p-10">
             <div className="flex border-b border-[#2f3942] mb-8">
-              <button 
-                type="button" 
-                onClick={() => setActiveTab('general')}
-                className={`pb-3 px-2 mr-8 font-mono font-bold text-[13px] tracking-wider uppercase transition-colors ${activeTab === 'general' ? 'text-white border-b-2 border-[#ef781b]' : 'text-[#78828c] hover:text-white border-b-2 border-transparent'}`}
-              >
-                GENERAL ENQUIRIES
-              </button>
-              <button 
-                type="button" 
-                onClick={() => setActiveTab('product')}
-                className={`pb-3 px-2 font-mono font-bold text-[13px] tracking-wider uppercase transition-colors ${activeTab === 'product' ? 'text-white border-b-2 border-[#ef781b]' : 'text-[#78828c] hover:text-white border-b-2 border-transparent'}`}
-              >
-                PRODUCT ENQUIRIES
-              </button>
+              <div className="pb-3 px-2 font-mono font-bold text-[13px] tracking-wider uppercase text-white border-b-2 border-[#ef781b] inline-block">
+                GENERAL &amp; PRODUCT ENQUIRIES
+              </div>
             </div>
 
             <form onSubmit={handleContactSubmit} className="space-y-6">
