@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Engineering - Adithya Power</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      background-color: #161c20;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Bulletproof Accordion Animations */
+    .accordion-content {
+      display: none;
+    }
+    .accordion-content.open {
+      display: block;
+      animation: accordionFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes accordionFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .accordion-chevron {
+      transition: transform 0.3s ease;
+    }
+    .accordion-chevron.rotate-open {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="w-full bg-[#161c20] text-white antialiased selection:bg-[#ef781b]/30 selection:text-white">
+
+  <!-- Main Container matching 1440px desktop frame -->
+  <div class="w-full max-w-[1440px] mx-auto bg-[#161c20] flex flex-col relative shadow-2xl text-white min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- 1. TOP HEADER & NAVIGATION                 -->
+    <!-- ========================================== -->
+    <header class="w-full bg-[#161c20] border-b border-[#263038] sticky top-0 z-50 backdrop-blur-md bg-[#161c20]/95">
+      <nav class="h-[100px] md:h-[114px] flex items-center justify-between px-6 lg:px-[72px] w-full">
+        <!-- Logo -->
+        <a href="index.html" class="w-[150px] md:w-[170px] h-[80px] relative flex items-center shrink-0 group">
+          <img src="./assets/logo.png" alt="Adithya Power Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center gap-[32px]">
+          <a href="index.html" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Home
+          </a>
+          <a href="index.html#about" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            About us
+          </a>
+          <a href="index.html#services" class="text-[#ef781b] font-semibold text-[14px] tracking-[-0.14px] flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#ef781b]"></span>
+            Services
+          </a>
+          <a href="index.html#projects" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Projects
+          </a>
+          <a href="index.html#leadership" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Leadership
+          </a>
+          <a href="index.html#contact" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Contact us
+          </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3">
+          <a href="index.html#services" class="border border-[#3e4a55] hover:border-[#ef781b] text-[#cfd3db] hover:text-white px-4 py-2.5 text-[13px] font-medium hidden sm:flex items-center gap-2 transition-all">
+            <span>&larr;</span>
+            <span>All Services</span>
+          </a>
+          <a href="index.html#contact" class="bg-[#ef781b] hover:bg-[#d66512] text-white px-5 py-2.5 flex items-center gap-2 transition-colors font-semibold text-[14px] shadow-md group">
+            <span>Consult Engineers</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. BREADCRUMB & HERO BANNER                -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#1b2126] border-b border-[#263038] px-6 lg:px-[72px] pt-8 pb-12">
+      <!-- Breadcrumb Bar -->
+      <div class="flex items-center gap-2.5 text-[13px] font-medium text-[#8e97a3] mb-6 uppercase tracking-wider">
+        <a href="index.html" class="hover:text-[#ef781b] transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/>
+          </svg>
+          <span>HOME</span>
+        </a>
+        <span>&gt;</span>
+        <a href="index.html#services" class="hover:text-[#ef781b] transition-colors">SERVICES</a>
+        <span>&gt;</span>
+        <span class="text-[#ef781b] font-bold">DESIGN ENGINEERING</span>
+      </div>
+
+      <!-- Hero Header Title -->
+      <div class="max-w-4xl mb-8">
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="w-3 h-3 bg-[#ef781b] inline-block"></span>
+          <span class="text-[#ef781b] font-bold text-[13px] tracking-[2px] uppercase">SERVICE 02 • THERMAL &amp; STRUCTURAL ENGINEERING</span>
+        </div>
+        <h1 class="text-white text-[34px] sm:text-[46px] lg:text-[54px] font-bold tracking-[-1px] leading-[1.15] mb-4">
+          Design Engineering
+        </h1>
+        <p class="text-[#a4abb3] text-[16px] sm:text-[18px] leading-relaxed max-w-3xl">
+          Effective design engineering is crucial for the success of refractory installations. Our team of skilled engineers uses advanced tools and techniques to create robust designs that enhance operational efficiency.
+        </p>
+      </div>
+
+      <!-- Hero Photo Card with Dual Engineering Showcase -->
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Main Engineering Anchoring & Hexmetal Installation Photo -->
+        <div class="lg:col-span-8 relative rounded-xl overflow-hidden border border-[#2f3942] bg-[#161c20] shadow-2xl group min-h-[300px] sm:min-h-[360px]">
+          <img 
+            src="./assets/services/design-engineering.png" 
+            alt="Hexmetal Anchoring & Refractory Design Engineering - Adithya Power" 
+            class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#161c20] via-black/30 to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4">
+            <div class="bg-[#1b2126]/90 backdrop-blur-md border border-[#2f3942] px-4 py-2 rounded flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ef781b] animate-pulse"></span>
+              <span class="text-white text-[13px] font-semibold tracking-wide">Hexmetal Mesh &amp; Anchor Layout Structural Verification</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded border border-white/10 text-[12px] text-[#cfd3db]">
+              <span>Stress Gradient Finite Element Modeling (FEA)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary CAD Lining Model Card -->
+        <div class="lg:col-span-4 relative rounded-xl overflow-hidden border border-[#2f3942] bg-[#1b2126] p-6 flex flex-col justify-between shadow-2xl">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[#ef781b] text-[12px] font-bold tracking-wider uppercase">CAD VISUALIZATION</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            </div>
+            <div class="rounded-lg overflow-hidden border border-[#2f3942] mb-4 h-[160px] bg-[#161c20] relative">
+              <img src="./assets/furnace-lining.png" alt="Furnace Lining CAD Layout" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126]/90 via-transparent to-transparent"></div>
+            </div>
+            <h4 class="text-white font-bold text-[17px] mb-2">3D Thermal Profiling</h4>
+            <p class="text-[#8e97a3] text-[13px] leading-relaxed">
+              Multi-layer thermodynamic simulation predicting heat flux, cold-face shell temperatures, and expansion allowances.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#2e3740] flex items-center justify-between text-[12px] text-[#cfd3db]">
+            <span>Software: AutoCAD / SolidWorks / ANSYS</span>
+            <span class="text-[#ef781b] font-semibold">&bull; 0.1mm Precision</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. OVERVIEW & CAPABILITY METRICS           -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-14 bg-[#161c20] border-b border-[#263038]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Overview Narrative -->
+        <div class="lg:col-span-7">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-[1.5px] uppercase">ENGINEERING PROTOCOL</span>
+          </div>
+          <h2 class="text-[#ef781b] text-[28px] sm:text-[36px] font-bold tracking-[-0.5px] leading-tight mb-5">
+            Precision Thermal &amp; Structural Lining Design
+          </h2>
+          <p class="text-[#cfd3db] text-[16px] sm:text-[17px] leading-[1.7] mb-6">
+            Effective design engineering is crucial for the success of refractory installations. Our team of skilled engineers uses advanced tools and techniques to create robust designs that enhance operational efficiency.
+          </p>
+          <p class="text-[#98a2ad] text-[15px] leading-[1.65]">
+            From thermodynamic heat loss minimization to finite-element stress modeling for metallic and ceramic anchors, we eliminate hot spots, prevent premature lining pinch spalling, and guarantee optimal refractory campaign life before the first brick or castable is laid.
+          </p>
+        </div>
+
+        <!-- Capability Stat Cards -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">1D &amp; 2D</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Thermal Modeling</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Comprehensive heat transfer &amp; cold-face temperature analysis.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">Zero-Clash</div>
+            <div class="text-white text-[14px] font-semibold mb-1">3D CAD Assemblies</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Full anchor layout, nozzle, and burner block spatial validation.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">&gt;30%</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Heat Loss Reduction</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Optimized multi-layer insulation lowering plant energy bills.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">RCA</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Failure Redesign</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Forensic spall analysis preventing recurring refractory downtime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. SERVICES OFFERED (INTERACTIVE TOPICS)   -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-16 bg-[#1b2126] border-b border-[#263038]" id="services-offered">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-[1.5px] uppercase">CORE ENGINEERING CAPABILITIES</span>
+          </div>
+          <h2 class="text-[#ef781b] text-[32px] sm:text-[42px] font-bold tracking-[-0.8px] leading-tight flex items-center gap-3">
+            <svg class="w-8 h-8 text-[#ef781b] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <span>Services Offered</span>
+          </h2>
+          <p class="text-[#a4abb3] text-[15px] max-w-2xl mt-2">
+            Click any service below to explore our engineering methodologies, analytical tools, and execution deliverables.
+          </p>
+        </div>
+</div>
+
+      <!-- Interactive Accordion Container with Animated Topic Transitions -->
+      <div class="space-y-4 w-full">
+
+        <!-- ---------------------------------------- -->
+        <!-- TOPIC 01: Thermal Design Analysis        -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <button 
+            onclick="toggleAccordion('topic-thermal')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <!-- Heat / Flame / Thermometer Icon -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2 13h-4v-1h4v1zm0-3h-4v-1h4v1zm0-3h-4V8h4v1z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">CAPABILITY 01</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Thermodynamic Analysis</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Thermal Design Analysis
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-thermal" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <div id="topic-thermal" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Precise evaluation of heat flow to enhance energy efficiency.
+                  </h4>
+                  <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+                    Our thermal engineering team conducts rigorous multi-dimensional heat transfer modeling to ensure heat remains within the process while keeping structural steel shells below critical oxidation thresholds.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Technical Details Breakdown -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">1D &amp; 2D Heat Gradient Curves</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Calculating exact interface temperatures across dense refractory, insulating castables, and microporous backings.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Cold-Face Shell Temperature</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Preventing hot spots, steel shell warpage, and workplace heat hazards through balanced thermal insulation layering.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Energy &amp; Fuel Conservation</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Lowering kiln and furnace fuel consumption through precision heat conservation audits and refractory optimization.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- TOPIC 02: Structural Design              -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <button 
+            onclick="toggleAccordion('topic-structural')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <!-- Anchor / Structural Beam Icon -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14.5V18h-2v-1.5a3.5 3.5 0 010-7V8h2v1.5a3.5 3.5 0 010 7z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">CAPABILITY 02</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Anchoring &amp; Integrity</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Structural Design
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-structural" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <div id="topic-structural" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Ensuring mechanical stability for high-stress applications.
+                  </h4>
+                  <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+                    Refractories undergo extreme thermal expansion, vibration, gravitational loads, and mechanical abrasion. Our structural design ensures the lining remains securely anchored without shearing or buckling.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Metallic &amp; Ceramic Anchors</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Custom Y-anchors, V-anchors, corrugated studs, scissor anchors, and ceramic scissor clips in SS 304, 310, 330, and Inconel.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Expansion Joint Engineering</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Scientific calculation of reversible and permanent linear expansion (PLC) to prevent pinch spalling and structural crushing.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Hexmetal &amp; Mesh Systems</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Hexagonal mesh anchoring engineered for high-erosion cyclone separators, transfer lines, and riser ducts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- TOPIC 03: 3D Modelling                   -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <button 
+            onclick="toggleAccordion('topic-modelling')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <!-- 3D Cube / CAD Icon -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 16.5l-9 5.25-9-5.25V7.5l9-5.25 9 5.25v9zM12 4.15L5.05 8.2 12 12.25l6.95-4.05L12 4.15zM4.5 9.85v5.8l6.5 3.8v-5.8l-6.5-3.8zm15 0l-6.5 3.8v5.8l6.5-3.8v-5.8z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">CAPABILITY 03</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">3D CAD Simulation</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  3D Modelling
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-modelling" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <div id="topic-modelling" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Visualizing refractory systems for better understanding and planning.
+                  </h4>
+                  <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+                    By developing high-fidelity 3D solid models, we simulate complex furnace geometries, verify anchor pitch, and provide installers with foolproof layer-by-layer assembly sequences before mobilizing to site.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Spatial Clash Detection</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Detecting interferences between thermocouple wells, burner blocks, sight ports, and anchor pins in the design phase.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Precision Material Takeoff</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Automated bill-of-materials calculation minimizing material scrap, transit costs, and onsite inventory surplus.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Layered Assembly Drawings</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Detailed fabrication and erection blueprints enabling faster installation cycles for turnkey shutdown teams.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- TOPIC 04: Failure Analysis and Redesign   -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <button 
+            onclick="toggleAccordion('topic-failure')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <!-- Microscope / Search / Shield Icon -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">CAPABILITY 04</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Forensic RCA</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Failure Analysis and Redesign
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-failure" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <div id="topic-failure" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Identifying potential weak points in existing setups and providing solutions to enhance performance.
+                  </h4>
+                  <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+                    Premature lining failure costs industrial plants millions in unplanned downtime. We perform on-site forensic audits, microscopic slag penetration analysis, and anchor stress diagnostics to re-engineer vulnerable zones.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Root Cause Determination</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Distinguishing between chemical corrosion, thermal spalling, anchor oxidation, or improper dry-out schedule ramps.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Zone-Specific Upgrades</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Re-specifying localized high-wear zones with PCPF shapes, silicon carbide castables, or resin-bonded Mag-Carbon bricks.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Campaign Life Multiplier</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Redesigned linings deliver documented campaign extensions of 50% to 200% across critical furnaces and ladles.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- TOPIC 05: Custom Solutions               -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <button 
+            onclick="toggleAccordion('topic-custom')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <!-- Cog / Tools Icon -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">CAPABILITY 05</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Tailored Systems</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Custom Solutions
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-custom" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <div id="topic-custom" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Tailored designs for unique operational challenges, ensuring efficient material use and cost-effectiveness.
+                  </h4>
+                  <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+                    No two industrial plants face identical thermal, mechanical, or chemical stresses. We develop custom engineered configurations specifically tailored to your vessel geometry, gas velocity, and process chemistry.
+                  </p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Bespoke Refractory Geometries</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Specially curved burner tiles, multi-angled chute liners, and precast delta sections designed from physical client templates.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Extreme Corrosive Service</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Acid gas scrubbers, sulfur condensers, and chlorination shafts engineered with impervious silicate and polymer membranes.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Cost-Optimized Material Use</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Strategic zoning that deploys premium high-cost refractories only where required, balancing performance and budget.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. OUR APPROACH (EXACT 3 PHASES)           -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-16 bg-[#161c20] border-b border-[#263038]" id="our-approach">
+      <div class="max-w-3xl mb-12">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-[#ef781b]"></span>
+          <span class="text-[#ef781b] font-bold text-[12px] tracking-[1.5px] uppercase">METHODICAL ENGINEERING WORKFLOW</span>
+        </div>
+        <h2 class="text-[#ef781b] text-[32px] sm:text-[42px] font-bold tracking-[-0.8px] leading-tight flex items-center gap-3">
+          <!-- Drawing Compass Icon -->
+          <svg class="w-8 h-8 text-[#ef781b] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16.93V18h-2v.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v-1.07c3.95-.49 7-3.85 7-7.93 0-.62-.08-1.21-.21-1.79L15 9v-1c0-1.1-.9-2-2-2v1.07C7.05 7.56 4 10.92 4 15c0 .62.08 1.21.21 1.79L9 11v-1c0-1.1.9-2 2-2v-1.07c3.95.49 7 3.85 7 7.93 0 .62-.08 1.21-.21 1.79L13 19z"/>
+          </svg>
+          <span>Our Approach</span>
+        </h2>
+        <p class="text-[#a4abb3] text-[15px] mt-2">
+          From initial thermal audit to final client sign-off, our structured engineering protocol ensures complete design accuracy, safety, and longevity.
+        </p>
+      </div>
+
+      <!-- 3 Step Process Flow Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        
+        <!-- Step 1: Requirement Analysis -->
+        <div class="bg-[#1b2126] border border-[#2f3942] rounded-xl p-8 flex flex-col justify-between hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 relative shadow-lg group">
+          <div class="absolute -top-4 left-8 bg-[#ef781b] text-white font-extrabold text-[14px] px-3.5 py-1 rounded shadow-md">
+            PHASE 01
+          </div>
+          <div class="pt-2">
+            <div class="w-12 h-12 rounded-lg bg-[#222a31] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] mb-6 transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+            </div>
+            <h3 class="text-white text-[20px] font-bold mb-3 group-hover:text-[#ef781b] transition-colors">
+              1. Requirement Analysis
+            </h3>
+            <p class="text-[#cfd3db] text-[14px] leading-relaxed">
+              We begin by understanding the client's operational challenges, environmental conditions, and performance expectations.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-[#2e3740] text-[12px] text-[#8e97a3]">
+            Key: Gas atmosphere, thermal cycles, slag chemistry, mechanical loads.
+          </div>
+        </div>
+
+        <!-- Step 2: Advanced Design Tools -->
+        <div class="bg-[#1b2126] border border-[#2f3942] rounded-xl p-8 flex flex-col justify-between hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 relative shadow-lg group">
+          <div class="absolute -top-4 left-8 bg-[#ef781b] text-white font-extrabold text-[14px] px-3.5 py-1 rounded shadow-md">
+            PHASE 02
+          </div>
+          <div class="pt-2">
+            <div class="w-12 h-12 rounded-lg bg-[#222a31] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] mb-6 transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-white text-[20px] font-bold mb-3 group-hover:text-[#ef781b] transition-colors">
+              2. Advanced Design Tools
+            </h3>
+            <p class="text-[#cfd3db] text-[14px] leading-relaxed">
+              Utilizing state-of-the-art CAD and simulation software to create accurate and detailed designs.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-[#2e3740] text-[12px] text-[#8e97a3]">
+            Key: SolidWorks 3D, FEA stress simulation, thermal gradient solvers.
+          </div>
+        </div>
+
+        <!-- Step 3: Collaborative Planning -->
+        <div class="bg-[#1b2126] border border-[#2f3942] rounded-xl p-8 flex flex-col justify-between hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 relative shadow-lg group">
+          <div class="absolute -top-4 left-8 bg-[#ef781b] text-white font-extrabold text-[14px] px-3.5 py-1 rounded shadow-md">
+            PHASE 03
+          </div>
+          <div class="pt-2">
+            <div class="w-12 h-12 rounded-lg bg-[#222a31] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] mb-6 transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-white text-[20px] font-bold mb-3 group-hover:text-[#ef781b] transition-colors">
+              3. Collaborative Planning
+            </h3>
+            <p class="text-[#cfd3db] text-[14px] leading-relaxed">
+              Working closely with clients to incorporate their feedback into the design process.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-[#2e3740] text-[12px] text-[#8e97a3]">
+            Key: Joint design reviews, installer shop drawings, final commissioning sign-off.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. APPLICATIONS ACROSS INDUSTRIES          -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-16 bg-[#1b2126] border-b border-[#263038]" id="applications">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <div class="flex items-center gap-1 text-[#ef781b]">
+            <span class="w-4 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-6 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-3 h-[2px] bg-[#ef781b]"></span>
+          </div>
+          <h2 class="text-[#ef781b] text-[28px] sm:text-[36px] font-bold tracking-wide uppercase">
+            Applications Across Industries
+          </h2>
+          <div class="flex items-center gap-1 text-[#ef781b]">
+            <span class="w-3 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-6 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-4 h-[2px] bg-[#ef781b]"></span>
+          </div>
+        </div>
+        <p class="text-[#a4abb3] text-[15px] mt-2">
+          Delivering custom refractory lining design and thermal modeling across critical process industries.
+        </p>
+      </div>
+
+      <!-- 5 Industry Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        
+        <!-- Sector A: Cement Industry -->
+        <a href="index.html#projects" class="group bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#161c20]">
+            <img src="./assets/projects/cement-industry.png" alt="Cement Industry Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#222a31] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR A</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Cement Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Rotary kiln mechanical tire clearance profiling, calciner cyclone anchor layouts, and burner hood refractory drawings.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sector B: Steel Plant -->
+        <a href="index.html#projects" class="group bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#161c20]">
+            <img src="./assets/projects/steel-plant.png" alt="Steel Plant Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#222a31] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR B</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Steel Plant
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                EAF roof water-cooled panel interfaces, steel ladle thermal gradient modeling, and tundish weir flow simulations.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sector C: Aluminium Industry -->
+        <a href="index.html#projects" class="group bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#161c20]">
+            <img src="./assets/projects/aluminium-industry.png" alt="Aluminium Industry Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#222a31] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR C</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Aluminium Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Reverberatory furnace anti-corundum multi-layer barrier design and anode baking pit flue-wall expansion calculations.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sector D: Chemical Industry -->
+        <a href="index.html#projects" class="group bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#161c20]">
+            <img src="./assets/projects/chemical-industry.png" alt="Chemical Industry Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#222a31] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR D</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Chemical Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Hazardous waste thermal oxidizers, sulfur reaction furnaces, and multi-zone acid brick membrane specifications.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sector E: Petrochemicals -->
+        <a href="index.html#projects" class="group bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#161c20]">
+            <img src="./assets/projects/petrochemical-industry.png" alt="Petrochemicals Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#222a31] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR E</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Petrochemicals
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                FCCU regenerators, hexmetal-anchored cyclone linings, and steam methane reformer tube wall thermal auditing.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. FAST ENQUIRY & TECHNICAL CONSULTATION   -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-14 bg-[#161c20] border-b border-[#263038]">
+      <div class="bg-[#222a31] border border-[#2f3942] rounded-xl p-8 sm:p-12 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2.5 h-2.5 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-wider uppercase">COMMISSION A DESIGN AUDIT</span>
+          </div>
+          <h3 class="text-white text-[26px] sm:text-[34px] font-bold tracking-tight mb-3">
+            Ready to Optimize Your Furnace Thermal Efficiency &amp; Lining Life?
+          </h3>
+          <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+            Send our design team your vessel dimensions, operating temperatures, and current lining history. We will formulate a comprehensive 2D/3D thermal proposal and anchor recommendation.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
+          <a href="index.html#contact" class="w-full sm:w-auto bg-[#ef781b] hover:bg-[#d66512] text-white px-8 py-4 font-bold text-[15px] text-center shadow-lg transition-colors flex items-center justify-center gap-3 group">
+            <span>START DESIGN CONSULTATION</span>
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+          <a href="tel:+9107122554468" class="w-full sm:w-auto border border-[#3e4a55] hover:border-[#ef781b] text-white px-6 py-4 font-semibold text-[14px] text-center transition-colors">
+            CALL ENGINEERING (+91 0712-2554468)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 8. GLOBAL FOOTER                           -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#141716] text-[#8e928c] px-6 lg:px-[72px] py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] mt-auto">
+      <div class="flex items-center gap-4">
+        <p>&copy; 2026 Adithya Power. All rights reserved.</p>
+        <span class="text-white/20">|</span>
+        <a href="index.html" class="hover:text-white transition-colors">Main Site</a>
+        <a href="refractory-material-manufacturing.html" class="hover:text-white transition-colors">Refractory Manufacturing</a>
+        <a href="index.html#services" class="hover:text-white transition-colors">All Services</a>
+        <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-[6px] h-[6px] bg-[#ef781b]"></div>
+        <span class="font-bold text-[12px] tracking-[1.2px] text-white uppercase">ADITHYA POWER</span>
+      </div>
+    </footer>
+
+    <!-- Back to top floating button -->
+    <button 
+      onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+      class="fixed bottom-6 right-6 w-11 h-11 bg-[#ef781b] hover:bg-[#d66512] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 z-40" 
+      aria-label="Scroll to top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Interactive JavaScript for smooth accordion toggle -->
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (!content) return;
+
+      const isOpen = content.classList.contains('open');
+      if (isOpen) {
+        content.classList.remove('open');
+        if (icon) icon.classList.remove('rotate-open');
+      } else {
+        content.classList.add('open');
+        if (icon) icon.classList.add('rotate-open');
+      }
+    }
+  </script>
+</body>
+</html>

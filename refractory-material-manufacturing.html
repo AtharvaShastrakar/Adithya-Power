@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refractory Material Manufacturing - Adithya Power</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      background-color: #161c20;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Bulletproof Accordion Animations */
+    .accordion-content {
+      display: none;
+    }
+    .accordion-content.open {
+      display: block;
+      animation: accordionFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes accordionFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .accordion-chevron {
+      transition: transform 0.3s ease;
+    }
+    .accordion-chevron.rotate-open {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="w-full bg-[#161c20] text-white antialiased selection:bg-[#ef781b]/30 selection:text-white">
+
+  <!-- Main Container matching 1440px desktop frame -->
+  <div class="w-full max-w-[1440px] mx-auto bg-[#161c20] flex flex-col relative shadow-2xl text-white min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- 1. TOP HEADER & NAVIGATION                 -->
+    <!-- ========================================== -->
+    <header class="w-full bg-[#161c20] border-b border-[#263038] sticky top-0 z-50 backdrop-blur-md bg-[#161c20]/95">
+      <nav class="h-[100px] md:h-[114px] flex items-center justify-between px-6 lg:px-[72px] w-full">
+        <!-- Logo -->
+        <a href="index.html" class="w-[150px] md:w-[170px] h-[80px] relative flex items-center shrink-0 group">
+          <img src="./assets/logo.png" alt="Adithya Power Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105" />
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center gap-[32px]">
+          <a href="index.html" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Home
+          </a>
+          <a href="index.html#about" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            About us
+          </a>
+          <a href="index.html#services" class="text-[#ef781b] font-semibold text-[14px] tracking-[-0.14px] flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#ef781b]"></span>
+            Services
+          </a>
+          <a href="index.html#projects" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Projects
+          </a>
+          <a href="index.html#leadership" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Leadership
+          </a>
+          <a href="index.html#contact" class="text-[#cfd3db] hover:text-[#ef781b] text-[14px] font-normal tracking-[-0.14px] transition-colors">
+            Contact us
+          </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3">
+          <a href="index.html#services" class="border border-[#3e4a55] hover:border-[#ef781b] text-[#cfd3db] hover:text-white px-4 py-2.5 text-[13px] font-medium hidden sm:flex items-center gap-2 transition-all">
+            <span>&larr;</span>
+            <span>All Services</span>
+          </a>
+          <a href="index.html#contact" class="bg-[#ef781b] hover:bg-[#d66512] text-white px-5 py-2.5 flex items-center gap-2 transition-colors font-semibold text-[14px] shadow-md group">
+            <span>Get a Quote</span>
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. BREADCRUMB & HERO BANNER                -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#1b2126] border-b border-[#263038] px-6 lg:px-[72px] pt-8 pb-12">
+      <!-- Breadcrumb Bar -->
+      <div class="flex items-center gap-2.5 text-[13px] font-medium text-[#8e97a3] mb-6 uppercase tracking-wider">
+        <a href="index.html" class="hover:text-[#ef781b] transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/>
+          </svg>
+          <span>HOME</span>
+        </a>
+        <span>&gt;</span>
+        <a href="index.html#services" class="hover:text-[#ef781b] transition-colors">SERVICES</a>
+        <span>&gt;</span>
+        <span class="text-[#ef781b] font-bold">REFRACTORY MATERIAL MANUFACTURING</span>
+      </div>
+
+      <!-- Hero Header Title -->
+      <div class="max-w-4xl mb-8">
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="w-3 h-3 bg-[#ef781b] inline-block"></span>
+          <span class="text-[#ef781b] font-bold text-[13px] tracking-[2px] uppercase">SERVICE 01 • IN-HOUSE MANUFACTURING</span>
+        </div>
+        <h1 class="text-white text-[34px] sm:text-[46px] lg:text-[54px] font-bold tracking-[-1px] leading-[1.15] mb-4">
+          Refractory Material Manufacturing
+        </h1>
+        <p class="text-[#a4abb3] text-[16px] sm:text-[18px] leading-relaxed max-w-3xl">
+          Engineered refractory compounds, high-density refractory bricks, advanced monolithic castables, and custom precast shapes formulated to withstand the most demanding thermal, mechanical, and corrosive chemical environments.
+        </p>
+      </div>
+
+      <!-- Hero Photo Card (Stacked Precast Shapes) -->
+      <div class="w-full relative rounded-xl overflow-hidden border border-[#2f3942] bg-[#161c20] shadow-2xl group">
+        <div class="w-full h-[280px] sm:h-[380px] lg:h-[460px] relative overflow-hidden bg-[#121619]">
+          <img 
+            src="./assets/services/refractory-manufacturing.png" 
+            alt="Precast Refractory Shapes Manufacturing - Adithya Power" 
+            class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#161c20] via-transparent to-black/20"></div>
+          
+          <!-- Image Tag Badge -->
+          <div class="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4">
+            <div class="bg-[#1b2126]/90 backdrop-blur-md border border-[#2f3942] px-4 py-2 rounded flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#ef781b] animate-pulse"></span>
+              <span class="text-white text-[13px] font-semibold tracking-wide">PCPF Precast Pre-fired Blocks Dispatch Quality Control</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded border border-white/10 text-[12px] text-[#cfd3db]">
+              <span>Batch Verified: ASTM C133 / DIN 51067</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. OVERVIEW & CAPABILITY METRICS           -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-14 bg-[#161c20] border-b border-[#263038]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Overview Narrative -->
+        <div class="lg:col-span-7">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-[1.5px] uppercase">TECHNICAL OVERVIEW</span>
+          </div>
+          <h2 class="text-[#ef781b] text-[28px] sm:text-[36px] font-bold tracking-[-0.5px] leading-tight mb-5">
+            Refractory Material Manufacturing
+          </h2>
+          <p class="text-[#cfd3db] text-[16px] sm:text-[17px] leading-[1.7] mb-6">
+            Refractory materials play a critical role in industries requiring high temperature resistance, such as steel, cement, power, and petrochemicals. At Adithya Power, we manufacture high-quality refractory materials tailored to meet specific thermal, mechanical, and chemical requirements.
+          </p>
+          <p class="text-[#98a2ad] text-[15px] leading-[1.65]">
+            Our in-house fabrication, automated grading plant, and precision hydraulic presses ensure strict batch uniformity, minimal porosity, superior spalling resistance, and dependable campaign life across kilns, ladles, incinerators, and furnaces.
+          </p>
+        </div>
+
+        <!-- Capability Stat Cards -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">1850°C+</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Max Thermal Resistance</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Engineered for extreme primary steel and clinker zones.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">15+</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Castable Formulations</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">From self-flow to ultra-low cement and bauxite grades.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">100%</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Quality Certified</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Every batch tested for CCS, PLC, and cold modulus.</p>
+          </div>
+
+          <div class="bg-[#1b2126] border border-[#2f3942] p-5 rounded-lg flex flex-col justify-between hover:border-[#ef781b] transition-colors">
+            <div class="text-[#ef781b] font-extrabold text-[32px] sm:text-[38px] leading-none mb-2">PCPF</div>
+            <div class="text-white text-[14px] font-semibold mb-1">Precast Pre-fired</div>
+            <p class="text-[#8e97a3] text-[12px] leading-relaxed">Ready-to-install burner, well, and tapping blocks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. OUR PRODUCT PORTFOLIO (ACCORDION & TABS)-->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-16 bg-[#1b2126] border-b border-[#263038]" id="portfolio">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-[1.5px] uppercase">PRODUCT RANGE &amp; TECHNICAL SPECIFICATIONS</span>
+          </div>
+          <h2 class="text-[#ef781b] text-[32px] sm:text-[42px] font-bold tracking-[-0.8px] leading-tight">
+            Our Product Portfolio
+          </h2>
+          <p class="text-[#a4abb3] text-[15px] max-w-2xl mt-2">
+            Click any category below to inspect our comprehensive formulations, chemical variations, and application specifications.
+          </p>
+        </div>
+</div>
+
+      <!-- Interactive Accordion Container with Animated Topic Transitions -->
+      <div class="space-y-4 w-full">
+
+        <!-- ---------------------------------------- -->
+        <!-- ITEM 01: PCPF Shapes                     -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <!-- Accordion Header Button -->
+          <button 
+            onclick="toggleAccordion('topic-pcpf')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <!-- Topic Icon: Pyramid / Precast Shape -->
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">TOPIC 01</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Precast Pre-Fired</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  PCPF Shapes (Precast Pre-fired Shapes)
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-pcpf" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Accordion Body Content -->
+          <div id="topic-pcpf" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <p class="text-[#ffffff] text-[16px] sm:text-[17px] font-medium leading-relaxed">
+                  Custom-designed components for unique operational needs, ensuring precision and faster installation.
+                </p>
+              </div>
+
+              <!-- Technical Highlights Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Pre-Cured &amp; Pre-Fired</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Cured under digitally monitored furnace profiles, eliminating in-situ dry out failure risks.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Custom Geometries</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Burner blocks, ladle well blocks, porous plug assemblies, runner tiles, and impact pads.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Rapid Turnaround</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Reduces planned furnace shutdown downtime by up to 60% compared to cast-in-place linings.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- ITEM 02: Monolithic Refractories         -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <!-- Accordion Header Button -->
+          <button 
+            onclick="toggleAccordion('topic-monolithic')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <!-- Topic Icon: Monolithic Trowel / Mortar -->
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">TOPIC 02</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Comprehensive Range</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Monolithic Refractories
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-monolithic" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Accordion Body Content -->
+          <div id="topic-monolithic" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740] space-y-6">
+              
+              <div class="text-[#cfd3db] text-[15px] leading-relaxed pb-4 border-b border-[#2e3740]">
+                Unshaped refractory materials applied in loose, plastic, dry, or slurry form. They form a continuous joint-free lining with outstanding thermal shock resistance and airtightness.
+              </div>
+
+              <!-- 8 Monolithic Categories Breakdown (Exact from User Images) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                
+                <!-- 1. Castable -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Castable Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Hydraulic and chemical setting refractory mixes tailored for vibration, pumping, or self-flow casting:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    Conventional Castable, High alumina Castable, low cement Castable, ultra-low cement Castable, self-flow Castable, Insulating Castable, Medium Cement Castable, Silicon Carbide Castable, Mullite Castable, Alumina-Magnesia Spinel Castable, High-Strength Castable, Low-Iron Castable, Acid-Resistant Castable, Alkali-Resistant Castable, Bauxite-Based Castable.
+                  </div>
+                </div>
+
+                <!-- 2. Rammed Refractories -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Rammed Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Dry and semi-dry mixes compacted using pneumatic rammers for coreless induction furnace and converter linings:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    High-Alumina Ramming Mass, Magnesia Ramming Mass, Chromite Ramming Mass, Neutral Ramming Mass, Silica Ramming Mass, Basic Ramming Mass.
+                  </div>
+                </div>
+
+                <!-- 3. Plastic Refractories -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Plastic Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Malleable refractory clays and binders formulated for fast contouring and burner throat repair:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    High-Alumina Plastic Refractories, Silicon Carbide Plastic Refractories, Fireclay Plastic Refractories, Phosphate-Bonded Plastic Refractories, Chrome-Alumina Plastic Refractories.
+                  </div>
+                </div>
+
+                <!-- 4. Gunned or Shotcrete Refractories -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Gunned or Shotcrete Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Pneumatically sprayed compositions with low rebound loss for emergency hot relining and large-area walls:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    Dry Gunning Mix, Wet Gunning Mix, High-Alumina Gunning Mix, Silicon Carbide Gunning Mix, Insulating Gunning Mix.
+                  </div>
+                </div>
+
+                <!-- 5. Patching Refractories -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Patching Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    High-tack emergency hot and cold repair materials designed for furnace mouths, ladles, and runner repairs:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    Rapid-bonding patching mixes engineered for deep hot patching, crack sealing, and spall containment without furnace shutdown.
+                  </div>
+                </div>
+
+                <!-- 6. Refractory Mortars -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Refractory Mortars</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Finely milled bonding cements that bond dense brick courses into monolithic structures:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    Air-Setting Mortar, Heat-Setting Mortar, High-Alumina Mortar, Silica Mortar, Zircon Mortar, Insulating Mortar.
+                  </div>
+                </div>
+
+                <!-- 7. Refractory Coatings -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Refractory Coatings</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Protective surface sealants shielding fiber and brick linings against hot gas erosion and chemical ingress:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    Air-Setting Mortar, Heat-Setting Mortar, High-Alumina Mortar, Silica Mortar, Insulating Mortar.
+                  </div>
+                </div>
+
+                <!-- 8. Grouting Refractories -->
+                <div class="bg-[#222a31] p-5 rounded-lg border border-[#2f3942] hover:border-[#ef781b]/50 transition-all">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#ef781b]"></span>
+                    <h4 class="text-white font-bold text-[16px]">Grouting Refractories</h4>
+                  </div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed mb-3">
+                    Free-flowing grouts formulated for deep void filling behind steel shells and anchor backfilling:
+                  </p>
+                  <div class="text-[13px] text-[#cfd3db] leading-[1.8] pl-2 border-l-2 border-[#ef781b]/40">
+                    High-Alumina Grout, Silicon Carbide Grout, Insulating Grout.
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- ITEM 03: Ceramic Fibers                  -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <!-- Accordion Header Button -->
+          <button 
+            onclick="toggleAccordion('topic-ceramic-fibers')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <!-- Topic Icon: Fiber / Thermal wave -->
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">TOPIC 03</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Thermal Insulation</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Ceramic Fibers
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-ceramic-fibers" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Accordion Body Content -->
+          <div id="topic-ceramic-fibers" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <p class="text-[#ffffff] text-[16px] sm:text-[17px] font-medium leading-relaxed">
+                  Flexible solutions for insulation.
+                </p>
+              </div>
+              
+              <!-- Product Formats Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Fiber Blankets</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Needled, spun refractory fibers with zero organic binders. Continuous service up to 1430°C.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Fiber Modules</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Pre-compressed edge-grain and folded anchor modules for high-speed furnace lining installation.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Rigid Boards</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Vacuum-formed ceramic boards offering high dimensional stability and flame impingement resistance.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Bulk &amp; Textiles</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Ropes, braids, tapes, and loose bulk fibers for door seals, expansion joint packing, and gaskets.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- ITEM 04: Microporous Boards              -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <!-- Accordion Header Button -->
+          <button 
+            onclick="toggleAccordion('topic-microporous')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <!-- Topic Icon: Microporous grid -->
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">TOPIC 04</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">Nano-Porous Efficiency</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Microporous Boards
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-microporous" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Accordion Body Content -->
+          <div id="topic-microporous" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-4">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <p class="text-[#ffffff] text-[16px] sm:text-[17px] font-medium leading-relaxed">
+                  Advanced solutions for insulation in challenging environments.
+                </p>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-[#2e3740]/80 mt-4 text-[14px]">
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Ultra-Low Thermal Conductivity</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Lower thermal conductivity than still air at elevated temperatures, providing unmatched insulation.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Maximum Space Savings</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Enables up to 50% reduction in insulation thickness, significantly expanding furnace volume.</p>
+                </div>
+                <div class="bg-[#222a31] p-4 rounded border border-[#2f3942]">
+                  <div class="text-[#ef781b] font-semibold text-[13px] uppercase mb-1">Extreme Hot Face Protection</div>
+                  <p class="text-[#a4abb3] text-[13px] leading-relaxed">Engineered for backup lining in steel ladles, glass tank bottoms, and fuel gas reform tubes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------- -->
+        <!-- ITEM 05: Bricks and Shapes               -->
+        <!-- ---------------------------------------- -->
+        <div class="accordion-item bg-[#222a31] border border-[#2f3942] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#ef781b]/60 shadow-md">
+          <!-- Accordion Header Button -->
+          <button 
+            onclick="toggleAccordion('topic-bricks')" 
+            class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group cursor-pointer transition-colors hover:bg-[#26313a]"
+            aria-expanded="false"
+          >
+            <div class="flex items-center gap-4">
+              <!-- Topic Icon: Brick Grid -->
+              <div class="w-11 h-11 rounded-lg bg-[#1b2126] border border-[#3e4a55] group-hover:border-[#ef781b] flex items-center justify-center text-[#ef781b] shrink-0 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 4h7v4H4zm9 0h7v4h-7zm-9 6h16v4H4zm0 6h7v4H4zm9 0h7v4h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="text-[#ef781b] text-[13px] font-bold tracking-wider">TOPIC 05</span>
+                  <span class="text-[11px] bg-[#ef781b]/15 text-[#ef781b] border border-[#ef781b]/30 px-2 py-0.5 rounded font-semibold uppercase">10 Specialized Grades</span>
+                </div>
+                <h3 class="text-white text-[19px] sm:text-[22px] font-bold mt-0.5 group-hover:text-[#ef781b] transition-colors">
+                  Bricks and Shapes
+                </h3>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div id="icon-topic-bricks" class="accordion-chevron w-8 h-8 rounded-full bg-[#1b2126] border border-[#3e4a55] flex items-center justify-center text-[#ef781b]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Accordion Body Content -->
+          <div id="topic-bricks" class="accordion-content px-6 pb-6 pt-2 border-t border-[#2e3740]/60">
+            <div class="bg-[#1b2126] p-6 rounded-lg border border-[#2e3740]">
+              <div class="flex items-start gap-3 mb-6">
+                <span class="text-[#ef781b] text-[20px] font-bold">•</span>
+                <div>
+                  <h4 class="text-white text-[17px] font-bold mb-1">
+                    Our refractory bricks are available in various grades, such as:
+                  </h4>
+                  <p class="text-[#a4abb3] text-[14px]">
+                    Pressed under high-tonnage hydraulic systems and fired at temperatures up to 1750°C for exceptional mechanical strength and chemical slag resistance.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 10 Brick Grades Grid (Exact as requested) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+                
+                <!-- 1. Fireclay -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 01</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Fireclay</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    High chemical purity aluminosilicate bricks for regenerator chambers, boilers, and stack flues.
+                  </p>
+                </div>
+
+                <!-- 2. High-Alumina -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 02</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">High-Alumina</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    45% to 85% Al₂O₃ content engineered for blast furnaces, ladles, and hot metal mixers.
+                  </p>
+                </div>
+
+                <!-- 3. Silica -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 03</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Silica</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Extreme high-temperature creep strength (>1650°C) for coke oven walls and glass crowns.
+                  </p>
+                </div>
+
+                <!-- 4. Insulation -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 04</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Insulation</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Ultra-lightweight porous firebricks offering minimal heat loss and swift thermal ramp rates.
+                  </p>
+                </div>
+
+                <!-- 5. Magnesia-Carbon (Mag-Carbon) -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 05</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Magnesia-Carbon</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Resin-bonded MgO-C formulated for EAF slag lines, ladles, and basic oxygen converters.
+                  </p>
+                </div>
+
+                <!-- 6. Magnesia-Chrome (Mag-Chrome) -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 06</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Magnesia-Chrome</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Direct-bonded bricks with excellent alkali and basic slag corrosion resistance for cement kilns.
+                  </p>
+                </div>
+
+                <!-- 7. Mullite -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 07</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Mullite</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Exceptional thermal shock resistance and low creep under extreme thermal loads up to 1700°C.
+                  </p>
+                </div>
+
+                <!-- 8. Spinel -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 08</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Spinel</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Alumina-magnesia spinel bricks resisting coating spalling and thermal cycling in cement transition zones.
+                  </p>
+                </div>
+
+                <!-- 9. Acid-resistant -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 09</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Acid-resistant</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Vitrified acid-proof bricks resisting hot concentrated H₂SO₄, HCl, and acid gas attack.
+                  </p>
+                </div>
+
+                <!-- 10. Chrome-Alumina -->
+                <div class="bg-[#222a31] border border-[#2f3942] hover:border-[#ef781b] p-4 rounded-lg flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group/brick">
+                  <div>
+                    <div class="text-[#ef781b] text-[12px] font-bold tracking-wider mb-1">GRADE 10</div>
+                    <div class="text-white font-bold text-[16px] group-hover/brick:text-[#ef781b] transition-colors">Chrome-Alumina</div>
+                  </div>
+                  <p class="text-[#8e97a3] text-[12px] mt-2 leading-relaxed">
+                    Cr₂O₃-Al₂O₃ solid-solution bricks for coal gasifiers, carbon black reactors, and incinerators.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. APPLICATIONS OF OUR PRODUCTS            -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-16 bg-[#161c20] border-b border-[#263038]" id="applications">
+      
+      <!-- Section Header with Iconic Triple Wings Accent -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <div class="flex items-center gap-1 text-[#ef781b]">
+            <span class="w-4 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-6 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-3 h-[2px] bg-[#ef781b]"></span>
+          </div>
+          <h2 class="text-[#ef781b] text-[28px] sm:text-[36px] font-bold tracking-wide uppercase">
+            Applications of Our Products
+          </h2>
+          <div class="flex items-center gap-1 text-[#ef781b]">
+            <span class="w-3 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-6 h-[2px] bg-[#ef781b]"></span>
+            <span class="w-4 h-[2px] bg-[#ef781b]"></span>
+          </div>
+        </div>
+        <p class="text-[#a4abb3] text-[15px] mt-2">
+          Supplying certified refractory solutions across mission-critical high-heat industrial sectors worldwide.
+        </p>
+      </div>
+
+      <!-- 5 Industry Application Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        
+        <!-- Application 1: Cement Industry -->
+        <a href="index.html#projects" class="group bg-[#1b2126] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#222a31]">
+            <img src="./assets/projects/cement-industry.png" alt="Cement Industry" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR A</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Cement Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Rotary kilns, burning zones, preheaters, and clinker coolers requiring alkali-resistant castables and magnesite spinel bricks.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Application 2: Steel Plant -->
+        <a href="index.html#projects" class="group bg-[#1b2126] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#222a31]">
+            <img src="./assets/projects/steel-plant.png" alt="Steel Plant" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR B</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Steel Plant
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Blast furnaces, electric arc furnaces (EAF), steel ladles, and tundishes using Mag-Carbon bricks and high-alumina ramming mass.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Application 3: Aluminium Industry -->
+        <a href="index.html#projects" class="group bg-[#1b2126] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#222a31]">
+            <img src="./assets/projects/aluminium-industry.png" alt="Aluminium Industry" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR C</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Aluminium Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Melting/holding furnaces and anode baking pits requiring non-wetting castables to prevent corundum growth.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Application 4: Chemical Industry -->
+        <a href="index.html#projects" class="group bg-[#1b2126] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#222a31]">
+            <img src="./assets/projects/chemical-industry.png" alt="Chemical Industry" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR D</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Chemical Industry
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                Incinerators, sulfur burners, and chlorination reaction vessels with acid-proof bricks and silicon carbide castables.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Application 5: Petrochemicals -->
+        <a href="index.html#projects" class="group bg-[#1b2126] border border-[#2f3942] rounded-lg overflow-hidden hover:border-[#ef781b] transition-all duration-300 hover:-translate-y-2 flex flex-col shadow-lg">
+          <div class="h-[180px] w-full overflow-hidden relative bg-[#222a31]">
+            <img src="./assets/projects/petrochemical-industry.png" alt="Petrochemicals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1b2126] to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-[#161c20]/80 backdrop-blur-sm border border-white/10 text-[10px] font-bold text-[#ef781b] px-2 py-0.5 rounded uppercase">SECTOR E</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-white font-bold text-[16px] group-hover:text-[#ef781b] transition-colors mb-1.5">
+                Petrochemicals
+              </h3>
+              <p class="text-[#8e97a3] text-[12px] leading-relaxed">
+                FCCU regenerators, transfer lines, catalyst cyclones, and cracking heaters using erosion-resistant monolithics.
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-[#2e3740] flex items-center justify-between text-[11px] font-semibold text-[#ef781b]">
+              <span>VIEW PROJECTS</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. FAST ENQUIRY & TECHNICAL CONSULTATION   -->
+    <!-- ========================================== -->
+    <section class="w-full px-6 lg:px-[72px] py-14 bg-[#1b2126] border-b border-[#263038]">
+      <div class="bg-[#222a31] border border-[#2f3942] rounded-xl p-8 sm:p-12 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2.5 h-2.5 bg-[#ef781b]"></span>
+            <span class="text-[#ef781b] font-bold text-[12px] tracking-wider uppercase">CUSTOM SPECIFICATIONS &amp; DISPATCH</span>
+          </div>
+          <h3 class="text-white text-[26px] sm:text-[34px] font-bold tracking-tight mb-3">
+            Need Custom Refractory Formulation or Technical Specifications?
+          </h3>
+          <p class="text-[#cfd3db] text-[15px] leading-relaxed">
+            Our material scientists and metallurgical engineers can tailor alumina-silica ratios, bonding mechanisms, and grain distributions to match your exact furnace operating atmosphere.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
+          <a href="index.html#contact" class="w-full sm:w-auto bg-[#ef781b] hover:bg-[#d66512] text-white px-8 py-4 font-bold text-[15px] text-center shadow-lg transition-colors flex items-center justify-center gap-3 group">
+            <span>REQUEST MATERIAL QUOTE</span>
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+          <a href="tel:+9107122554468" class="w-full sm:w-auto border border-[#3e4a55] hover:border-[#ef781b] text-white px-6 py-4 font-semibold text-[14px] text-center transition-colors">
+            CALL ENGINEERING (+91 0712-2554468)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. GLOBAL FOOTER                           -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#141716] text-[#8e928c] px-6 lg:px-[72px] py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] mt-auto">
+      <div class="flex items-center gap-4">
+        <p>&copy; 2026 Adithya Power. All rights reserved.</p>
+        <span class="text-white/20">|</span>
+        <a href="index.html" class="hover:text-white transition-colors">Main Site</a>
+        <a href="index.html#services" class="hover:text-white transition-colors">All Services</a>
+        <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="w-[6px] h-[6px] bg-[#ef781b]"></div>
+        <span class="font-bold text-[12px] tracking-[1.2px] text-white uppercase">ADITHYA POWER</span>
+      </div>
+    </footer>
+
+    <!-- Back to top floating button -->
+    <button 
+      onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+      class="fixed bottom-6 right-6 w-11 h-11 bg-[#ef781b] hover:bg-[#d66512] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 z-40" 
+      aria-label="Scroll to top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Interactive JavaScript for smooth accordion toggle -->
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (!content) return;
+
+      const isOpen = content.classList.contains('open');
+      if (isOpen) {
+        content.classList.remove('open');
+        if (icon) icon.classList.remove('rotate-open');
+      } else {
+        content.classList.add('open');
+        if (icon) icon.classList.add('rotate-open');
+      }
+    }
+  </script>
+</body>
+</html>

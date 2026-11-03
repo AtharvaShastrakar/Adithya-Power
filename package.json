@@ -1,0 +1,12 @@
+{
+  "name": "adithya-power",
+  "version": "1.0.0",
+  "description": "Official website for Adithya Power Refractories & Insulation Pvt. Ltd.",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0"
+  }
+}
